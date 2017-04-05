@@ -10,7 +10,10 @@
  'license': 'AGPL-3',
  'category': 'category',
  'complexity': "complexity",
- 'depends': ['sale'],
+ 'depends': [
+     'sale',
+     'sales_team',
+ ],
  'website': 'www.camptocamp.com',
  'data': ['views/company.xml',
           'views/sale.xml'],

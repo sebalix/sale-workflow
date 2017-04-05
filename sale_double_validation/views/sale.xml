@@ -8,7 +8,7 @@
       <field name="arch" type="xml">
 
         <button name="action_cancel" position="before">
-          <button name="action_approve" type="object" states='to_approve' string="Approve Order" class="oe_highlight" groups="base.group_sale_manager"/>
+          <button name="action_approve" type="object" states='to_approve' string="Approve Order" class="oe_highlight" groups="sales_team.group_sale_manager"/>
         </button>
 
       </field>

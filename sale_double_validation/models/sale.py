@@ -22,7 +22,7 @@ class SaleOrder(models.Model):
     def is_to_approve(self):
         return (self.company_id.so_double_validation == 'two_step' and
                 self.is_amount_to_approve() and
-                not self.user_has_groups('base.group_sale_manager'))
+                not self.user_has_groups('sales_team.group_sale_manager'))
 
     @api.multi
     def action_confirm(self):
