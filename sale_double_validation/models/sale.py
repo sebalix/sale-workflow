@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 # Copyright 2017 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
-from odoo import api, models
+
+from odoo import api, models, _
 from odoo.tools import float_compare
 
 
@@ -28,10 +29,10 @@ class SaleOrder(models.Model):
         limit_amount = self.company_id.so_double_validation_amount
         limit_amount = currency.compute(limit_amount, self.currency_id)
         if float_compare(
-           self.amount_total, limit_amount, precision_digits=2) == 1:
-            return False
-        else:
+           limit_amount, self.amount_total, precision_digits=2) <= 0:
             return True
+        else:
+            return False
 
     @api.multi
     def is_to_approve(self):
@@ -41,8 +42,8 @@ class SaleOrder(models.Model):
 
     @api.multi
     def action_confirm(self):
-        to_approve = self.env['sale.order']
-        to_confirm = self.env['sale.order']
+        to_approve = self.env['sale.order'].browse()
+        to_confirm = self.env['sale.order'].browse()
         for order in self:
             if order.is_to_approve():
                 to_approve |= order
