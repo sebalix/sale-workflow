@@ -17,12 +17,12 @@ class AutomaticWorkflowJob(models.Model):
     @api.model
     def run_with_workflow(self, sale_wkf):
         workflow_domain = [('workflow_process_id', '=', sale_wkf.id)]
-        res = super(AutomaticWorkflowJob, self).run_with_workflow(sale_wkf)
+        super(AutomaticWorkflowJob, self).run_with_workflow(sale_wkf)
         if sale_wkf.register_payment:
             self._register_payments(
                 safe_eval(sale_wkf.payment_filter_id.domain) +
                 workflow_domain)
-        return res
+        return
 
     @api.model
     def _register_payments(self, payment_filter):
@@ -33,6 +33,14 @@ class AutomaticWorkflowJob(models.Model):
             partner_type = invoice.type in ('out_invoice', 'out_refund') and \
                 'customer' or 'supplier'
             payment_mode = invoice.payment_mode_id
+            if not payment_mode.fixed_journal_id:
+                _logger.debug('Unable to Register Payment for invoice %s: '
+                              'Payment mode %s must have fixed journal',
+                              invoice.id, payment_mode.id)
+                return
+
+            self.cr.commit = mock.MagicMock()
+
             with commit(self.env.cr):
                 payment = self.env['account.payment'].create({
                     'invoice_ids': [(6, 0, invoice.ids)],
