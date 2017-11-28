@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-# © 2011 Raphaël Valyi, Renato Lima, Guewen Baconnier, Sodexis
-# © 2017 Mourad EL HADJ MIMOUNE, Akretion
+# Copyright 2011 Akretion, Camptocamp, Sodexis
+# Copyright 2017 Akretion, Camptocamp
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-
 from odoo import api, fields, models
 
 
