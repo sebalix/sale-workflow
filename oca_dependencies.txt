@@ -1,0 +1,2 @@
+sale-workflow https://github.com/simahawk/sale-workflow 11.0-mig-sale_product_set
+
