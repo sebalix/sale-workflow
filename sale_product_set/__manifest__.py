@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright 2015 Anybox
 # Copyright 2017 Camptocamp
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
