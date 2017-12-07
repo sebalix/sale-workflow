@@ -5,7 +5,8 @@
     'name': 'Sale Credit Points',
     'version': '11.0.1.0.0',
     'category': 'Sales',
-    'author': 'Camptocamp',
+    'license': 'AGPL-3',
+    'author': 'Camptocamp, Odoo Community Association (OCA)',
     'website': 'http://www.camptocamp.com/',
     'depends': [
         'sale',
