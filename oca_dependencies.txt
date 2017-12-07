@@ -1,1 +1,2 @@
-server-tools
+server-tools https://github.com/simahawk/server-tools.git 11.0-fix-base_exception-tests
+sale-workflow https://github.com/simahawk/sale-workflow 11.0-mig-sale_product_set
