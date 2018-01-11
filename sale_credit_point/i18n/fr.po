@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-07 11:35+0000\n"
-"PO-Revision-Date: 2017-12-07 12:39+0100\n"
+"POT-Creation-Date: 2018-01-11 13:46+0000\n"
+"PO-Revision-Date: 2018-01-11 15:51+0100\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: code:addons/sale_credit_point/wizards/manage_credit_point.py:39
 #, python-format
 msgid "A comment is needed to the update credit"
-msgstr ""
+msgstr "Un commentaire est nécessaire pour mettre à jour un crédit."
 
 #. module: sale_credit_point
 #: model:ir.ui.view,arch_db:sale_credit_point.wiz_manage_credit_point
@@ -36,7 +36,7 @@ msgstr "Commentaires"
 #. module: sale_credit_point
 #: model:ir.model,name:sale_credit_point.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contact"
 
 #. module: sale_credit_point
 #: model:ir.model.fields,field_description:sale_credit_point.field_wiz_manage_credit_point_create_uid
@@ -52,7 +52,7 @@ msgstr "Créé le"
 #: model:ir.model.fields,field_description:sale_credit_point.field_res_partner_credit_point_currency_id
 #: model:ir.model.fields,field_description:sale_credit_point.field_res_users_credit_point_currency_id
 msgid "Credit Point Currency"
-msgstr ""
+msgstr "Devise pour le crédit de point"
 
 #. module: sale_credit_point
 #: code:addons/sale_credit_point/models/partner.py:54
@@ -63,7 +63,7 @@ msgstr "Crédit mis à jour de %s. Raison: %s"
 #. module: sale_credit_point
 #: selection:wiz.manage.credit.point,operation:0
 msgid "Decrease"
-msgstr ""
+msgstr "Diminuer"
 
 #. module: sale_credit_point
 #: model:ir.model.fields,field_description:sale_credit_point.field_wiz_manage_credit_point_display_name
@@ -78,7 +78,7 @@ msgstr "ID"
 #. module: sale_credit_point
 #: selection:wiz.manage.credit.point,operation:0
 msgid "Increase"
-msgstr ""
+msgstr "Augmenter"
 
 #. module: sale_credit_point
 #: model:ir.model.fields,field_description:sale_credit_point.field_wiz_manage_credit_point___last_update
@@ -125,7 +125,7 @@ msgstr "Points Attribution"
 #. module: sale_credit_point
 #: model:ir.model,name:sale_credit_point.model_sale_order
 msgid "Quotation"
-msgstr ""
+msgstr "Devis"
 
 #. module: sale_credit_point
 #: model:ir.ui.view,arch_db:sale_credit_point.wiz_manage_credit_point
@@ -135,7 +135,7 @@ msgstr "Raison de la modification"
 #. module: sale_credit_point
 #: selection:wiz.manage.credit.point,operation:0
 msgid "Replace"
-msgstr ""
+msgstr "Remplacer"
 
 #. module: sale_credit_point
 #: code:addons/sale_credit_point/models/sale_order.py:28
@@ -157,7 +157,7 @@ msgstr "Les partenaires sélectionnés"
 #. module: sale_credit_point
 #: model:ir.model.fields,field_description:sale_credit_point.field_wiz_manage_credit_point_operation
 msgid "Type of operation"
-msgstr ""
+msgstr "Type d'opération"
 
 #. module: sale_credit_point
 #: model:ir.ui.view,arch_db:sale_credit_point.wiz_manage_credit_point
@@ -173,8 +173,7 @@ msgstr "Mise à jour credit"
 #: code:addons/sale_credit_point/models/partner.py:35
 #, python-format
 msgid "You can't set a credit point lower than 0"
-msgstr ""
-"Il n'est pas possible d'affecter une attribution logistique plus petite que 0"
+msgstr "Il n'est pas possible d'affecter une attribution logistique plus petite que 0"
 
 #. module: sale_credit_point
 #: model:ir.model,name:sale_credit_point.model_wiz_manage_credit_point
