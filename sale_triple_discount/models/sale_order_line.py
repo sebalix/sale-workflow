@@ -17,6 +17,7 @@ class SaleOrderLine(models.Model):
             return self._additive_discount()
         elif self.discounting_type == "multiplicative":
             return self._multiplicative_discount()
+        return 0
 
     def _additive_discount(self):
         self.ensure_one()
@@ -45,6 +46,8 @@ class SaleOrderLine(models.Model):
         # the fields once more returning a wrong value
         super(SaleOrderLine, self)._compute_amount()
         for line in self:
+            import pdb;pdb.set_trace()
+            
             prev_price_unit = line.price_unit
             price = round(prev_price_unit * line._get_final_discount(), 2)
             taxes = line.tax_id.compute_all(
