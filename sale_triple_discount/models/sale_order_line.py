@@ -4,7 +4,8 @@
 # Copyright 2017 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
 import odoo.addons.decimal_precision as dp
 
 
@@ -17,6 +18,10 @@ class SaleOrderLine(models.Model):
             return self._additive_discount()
         elif self.discounting_type == "multiplicative":
             return self._multiplicative_discount()
+        else:
+            raise ValidationError(_(
+                "Sale order line %s has unknown discounting type %s"
+            ) % (self.name, self.discounting_type))
 
     def _additive_discount(self):
         self.ensure_one()
@@ -28,7 +33,7 @@ class SaleOrderLine(models.Model):
 
     def _multiplicative_discount(self):
         self.ensure_one()
-        discounts = [1 - (getattr(self, x) or 0.0) / 100
+        discounts = [1 - (self[x] or 0.0) / 100
                      for x in self._discount_fields()]
         final_discount = 1
         for discount in discounts:
@@ -77,6 +82,7 @@ class SaleOrderLine(models.Model):
             ('multiplicative', 'Multiplicative'),
         ],
         default="multiplicative",
+        required=True,
         help="Specifies whether discounts should be additive "
         "or multiplicative.\nAdditive discounts are summed first and "
         "then applied.\nMultiplicative discounts are applied sequentially.\n"
