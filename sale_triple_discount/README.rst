@@ -64,6 +64,7 @@ Contributors
 * Juan José Scarafía <jjs@adhoc.com.ar>
 * Alex Comba <alex.comba@agilebg.com>
 * David Vidal <david.vidal@tecnativa.com>
+* Jacques-Etienne Baudoux (BCIM sprl) <je@bcim.be>
 
 Maintainer
 ----------
