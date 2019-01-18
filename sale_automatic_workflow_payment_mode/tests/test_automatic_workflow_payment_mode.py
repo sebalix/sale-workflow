@@ -52,8 +52,19 @@ class TestAutomaticWorkflowPaymentMode(TestAutomaticWorkflowBase):
         invoice = sale.invoice_ids
         self.assertEqual(invoice.state, 'paid')
         picking = sale.picking_ids
-        picking.force_assign()
-        picking.move_lines.write({'quantity_done': 1})
+        move = picking.move_lines
+        # simulate manual creation of stock move line through UI and fill
+        # the qty done to be able to force the transfer
+        default_vals = {
+            'product_uom_id': move.product_uom.id,
+            'picking_id': move.picking_id.id,
+            'move_id': move.id,
+            'product_id': move.product_id.id,
+            'location_id': move.location_id.id,
+            'location_dest_id': move.location_dest_id.id,
+        }
+        move_line = self.env['stock.move.line'].create(default_vals)
+        move_line.qty_done = 1
         picking.button_validate()
         self.progress()
         self.assertEqual(picking.state, 'done')
