@@ -10,5 +10,5 @@ class Partner(models.Model):
 
     sale_incoterm_id = fields.Many2one(
         string='Default Sales Incoterm',
-        comodel_name='stock.incoterms',
+        comodel_name='account.incoterms',
         help="The default incoterm for new sales orders for this customer.")
