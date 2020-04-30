@@ -70,24 +70,6 @@ class SaleOrderLine(models.Model):
             self.update({"product_packaging_qty": 0})
         return super()._onchange_product_packaging()
 
-    @api.onchange("product_packaging_qty")
-    def _onchange_product_packaging_qty(self):
-        if self.product_packaging_qty and not self.product_packaging:
-            raise UserError(
-                _(
-                    "You must define a package before setting a quantity "
-                    "of said package."
-                )
-            )
-        else:
-            self.update(
-                {
-                    "product_uom_qty": self.product_packaging_qty
-                    * self.product_packaging.qty,
-                    "product_uom": self.product_id.uom_id,
-                }
-            )
-
     @api.onchange("product_uom_qty")
     def _onchange_product_uom_qty(self):
         """
